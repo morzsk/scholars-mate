@@ -1,6 +1,9 @@
 # Scholar's Mate
 
 ```sh
+devenv up -d
+devenv shell
+psql "$DATABASE_URL" -f seeds/dev.sql
 cargo dev
 ```
 
