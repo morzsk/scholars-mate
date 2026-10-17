@@ -1,0 +1,64 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.marquee h1 {
+  color: black;
+}
+
+.screen {
+  position: relative;
+  box-sizing: border-box;
+  width: 32rem;
+  max-width: 100vw;
+  padding: 3rem;
+  color: white;
+  background: black;
+  font-family: "Jersey 20", sans-serif;
+  text-align: center;
+}
+
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    transparent 0 4px,
+    rgb(255 255 255 / 8%) 4px 5px
+  );
+  pointer-events: none;
+}
+
+.screen h2 {
+  margin: 0 0 2rem;
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.leaderboard {
+  width: 100%;
+  font-size: 2rem;
+  border-spacing: 0 0.25rem;
+}
+
+.leaderboard tbody tr:nth-child(-n + 3) {
+  color: black;
+}
+
+.leaderboard tbody tr:nth-child(1) {
+  background: #d4af37;
+}
+
+.leaderboard tbody tr:nth-child(2) {
+  background: #c0c0c0;
+}
+
+.leaderboard tbody tr:nth-child(3) {
+  background: #cd7f32;
+}

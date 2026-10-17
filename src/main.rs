@@ -1,5 +1,6 @@
 use askama::Template;
 use axum::{Router, response::Html, routing::get};
+use tower_http::services::ServeDir;
 
 #[derive(Template)]
 #[template(path = "index.html")]
@@ -11,7 +12,9 @@ async fn index() -> Html<String> {
 
 #[tokio::main]
 async fn main() {
-    let app = Router::new().route("/", get(index));
+    let app = Router::new()
+        .route("/", get(index))
+        .nest_service("/static", ServeDir::new("static"));
     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
         .await
         .expect("address should bind");
